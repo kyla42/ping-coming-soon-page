@@ -1,0 +1,151 @@
+@use "util" as u;
+
+.logo {
+    @extend %fx-jc-c;
+}
+
+.title {
+    margin: 4.8rem 0 4rem 0;
+    @extend %fxcol-ai-c;
+    row-gap: 1.7rem;
+}
+
+.submit-field {
+    position: relative;
+    width: 100%;
+    margin-bottom: 8.6rem;
+    @extend %fx-jc-sb;
+
+    @include u.bp(md) {
+        flex-direction: column;
+        align-items: center;
+        row-gap: 3rem;
+    }
+
+    .email {
+        width: 66%;
+        height: 5.6rem;
+        border-radius: 3rem;
+        border: 0.1rem solid u.$PaleBlue;
+        padding-left: 3rem;
+
+        @include u.bp(md) {
+            width: 90%;
+        }
+
+        &::placeholder {
+            color: u.$PaleBlue;
+            font-weight: 300;
+        }
+    }
+
+    .submit-btn {
+        width: 31.5%;
+        height: 5.6rem;
+        border-radius: 3rem;
+        background: u.$Blue;
+        box-shadow: 0 1rem 1rem u.$fadedPaleBlue;
+        transition: opacity .2s ease-in-out;
+
+        @include u.bp(md) {
+            width: 90%;
+        }
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+
+    %msg {
+        position: absolute;
+        top: 6.4rem;
+        margin: 0 0 7rem 3rem;
+        font-size: 1.2rem;
+        display: none;
+
+        @include u.bp(md) {
+            top: 5.8rem;
+            left: 2rem         
+        }
+    }
+
+    .error-msg {
+        @extend %msg;
+        color: u.$LightRed;
+    }
+
+    .success-msg {
+        @extend %msg;
+        color: initial;
+    }
+
+    &.error {
+        .email {
+            border-color: u.$LightRed;
+        }
+
+        .error-msg {
+            display: block;
+        }
+    }
+
+    &.success {
+        .success-msg {
+            font-weight: 600;
+            display: block;
+        }
+
+        .submit-btn {
+            opacity: 0.7;
+            cursor: initial;
+        }
+    }
+}
+
+.image {
+    margin-bottom: 6.7rem;
+
+    img {
+        width: 64rem;
+
+        @include u.bp(md) {
+            width: 100%;
+        }
+    }
+}
+
+.links {
+    margin-bottom: 0.6rem;
+    @extend %fx-jc-c;
+    column-gap: 1.2rem;
+}
+
+.link {
+    width: 3.1rem;
+    height: 3.1rem;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    border: 0.1rem solid u.$fadedPaleBlue;
+    border-radius: 50%;
+    @extend %fx-jcai-c;
+    transition: all .2s ease-in-out;
+
+    .bx {
+        color: u.$Blue;
+        transition: all .2s ease-in-out;
+    }
+
+    &:hover {
+        background: u.$Blue;
+
+        .bx {
+            color: u.$White;
+        }
+    }
+}
+
+.copyright {
+    color: u.$Gray;
+    font-size: 1.2rem;
+    text-align: center;
+}
